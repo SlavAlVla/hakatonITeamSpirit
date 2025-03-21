@@ -47,8 +47,7 @@ async def script(state, attachments, question_id, message, sender, task):
             question_id += 1
             if (question_id == len(task["questions"])):
                 state = "finished"
-                return ["Верно! Поздравляю с прохождением теста! Забирай награду в приложении" +
-                        "\n" + "А пока лови интересную информацию: " + task["dop_content"], state, question_id]
+                return ["Верно! Поздравляю с прохождением теста! Забирай награду в приложении", state, question_id]
             return ["Верно! идем дальше:" + "\n" + task["questions"][question_id], state, question_id]
         else:
             question_id = 0

@@ -46,9 +46,6 @@ async def loop():
             bot_attachment = upload_photo(photo_path)
 
             # Отправка сообщения
-            if (state not in ["photo", "word"]):
-                await write_message(sender, bot_message, bot_attachment, keyboard.get_keyboard())
-            else:
-                await write_message(sender, bot_message, bot_attachment, keyboard.get_empty_keyboard())
+            await write_message(sender, bot_message, bot_attachment, keyboard.get_keyboard())
 
 asyncio.run(loop())

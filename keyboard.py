@@ -32,12 +32,21 @@ async def get_keyboard(state, question_id, task):
             if answer_id != len(task["answers"][question_id])-1:
                 keyboard.add_line()
     
+    # Задание дня - фото
+    elif state == "photo":
+        print(state)
+        keyboard.add_button("Назад", color=VkKeyboardColor.NEGATIVE)
+
+    # Задание дня - угадать слово
+    elif state == "word":
+        keyboard.add_button("Назад", color=VkKeyboardColor.NEGATIVE)
+    
     # Задание завершено
     elif state == "finished":
         keyboard.add_openlink_button(label='Забрать баллы', link="https://vk.com/app7785085")
 
     # Кнопка назад, если сценарий не в начале:
-    if (state not in ["Начать", "begin", "Правила"]):
+    if (state not in ["Начать", "begin", "Правила", "photo", "word"]):
         keyboard.add_line()
         keyboard.add_button("Назад", color=VkKeyboardColor.NEGATIVE)
 
