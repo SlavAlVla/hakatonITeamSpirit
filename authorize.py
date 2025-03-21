@@ -17,4 +17,4 @@ async def get_task_id(sender):
         await new_user(sender)
     reg_date_str = await get_registration_date(sender)
     reg_date = datetime.strptime(str(reg_date_str[0][0]), '%Y-%m-%d')
-    return ((datetime.today() - reg_date).days)%29
+    return ((datetime.today() - reg_date).days)%30
